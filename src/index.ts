@@ -2,10 +2,10 @@
 import art from "ascii-art";
 import chalk from "chalk";
 import { input, select } from "@inquirer/prompts";
-import { frames, handleFrameCreation } from "./frames.js";
+import { evmActions, handleActionCreation } from "./actions.js";
 
 const handleSigTerm = () => {
-  console.log(`${chalk.red("Open Frame creation aborted.")}`);
+  console.log(`${chalk.red("EVM Action creation aborted.")}`);
   process.exit(0);
 };
 
@@ -14,22 +14,24 @@ process.on("SIGTERM", handleSigTerm);
 
 const main = async () => {
   try {
-    const openFramesArt = await art.font("Open Frames", "doom").toPromise();
-    console.log(openFramesArt);
-    console.log(`created by 🌳 ${chalk.green("https://builders.garden")}`);
+    const evmActionsArt = await art.font("EVM Actions", "doom").toPromise();
+    console.log(evmActionsArt);
+    console.log(
+      `[ETHCC Brussels] by 🌳 ${chalk.green("https://builders.garden")}`
+    );
 
-    const selectedOpenFrame = await select({
-      message: "Select an Open Frames template:",
-      choices: frames,
+    const selectedEVMAction = await select({
+      message: "Select an EVM Action template:",
+      choices: evmActions,
     });
 
     const name = await input({
       message: "Enter your desired folder name:",
-      default: "open-frame",
+      default: "evm-action",
     });
 
     const directory = await input({
-      message: "Enter the director where you want to create your Open Frame:",
+      message: "Enter the director where you want to create your EVM Action:",
       default: "./",
     });
 
@@ -40,9 +42,9 @@ const main = async () => {
 
     const path = `${parsedDirectory}/${name}`;
 
-    handleFrameCreation(selectedOpenFrame, path);
+    handleActionCreation(selectedEVMAction, path);
   } catch (error) {
-    console.log(`${chalk.red("Open Frame creation aborted.")}`);
+    console.log(`${chalk.red("EVM Action creation aborted.")}`);
   }
 };
 
