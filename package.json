@@ -1,44 +1,47 @@
 {
-  "name": "create-open-frames",
-  "version": "1.0.9",
-  "description": "CLI for creating Open Frames with a slick terminal UI.",
-  "exports": {
-    ".": "./dist/index.js"
-  },
-  "engines": {
-    "node": ">=18.0.0"
+  "name": "gitgate-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fontsource/space-grotesk": "^4.5.10",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@web3modal/ethereum": "^2.0.0-beta.1",
+    "@web3modal/react": "^2.0.0-beta.1",
+    "ethers": "^5.7.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "build": "tsc && chmod +x ./dist/index.js"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "type": "module",
-  "keywords": [
-    "cli",
-    "frames",
-    "open-frames"
-  ],
-  "bin": {
-    "create-open-frames": "./dist/index.js"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
-  "homepage": "https://builders.garden",
-  "files": [
-    "dist"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/builders-garden/create-open-frames"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
-  "author": "builders.garden",
-  "license": "MIT",
   "devDependencies": {
-    "@types/ascii-art": "^1.4.3",
-    "@types/node": "^20.14.9",
-    "typescript": "^5.5.3"
-  },
-  "dependencies": {
-    "@inquirer/prompts": "^5.1.1",
-    "ascii-art": "^2.8.5",
-    "chalk": "4.1.2",
-    "ora": "^8.0.1"
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.18",
+    "tailwindcss": "^3.2.1"
   }
 }
